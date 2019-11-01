@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Robin Williams - Home</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+        <div class="topNav" id="myTopNav">
+                <a href="index.html" id="topName">Robin Williams</a>
+                <a href="index.html" id="homeIcon">
+                    <i class="fa fa-home"></i>
+                </a>
+                <a href="portfolio.html" id="centerNav">Portfolio</a>
+                <a href="contact.html" id=lastNav>Contact</a>
+                <a href="javascript:void(0);" id="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+    <section>
+        <div>
+            <img src="http://www.quoteambition.com/wp-content/uploads/2017/04/robin-williams.jpg" id="mainPic">
+            <h1 class="heading">Robin Williams</h1>
+        </div>
+    </section>
+
+    <section>
+        <div>
+            <h3>A Little About Robin</h3>
+                <p>Robin McLaurin Williams (July 21, 1951 – August 11, 2014) was an American actor and comedian. Born in Chicago, Williams started as a stand-up comedian in San Francisco and Los Angeles in the mid-1970s. He is credited with leading San Francisco's comedy renaissance.[1] After rising to fame as an alien called Mork in the TV sci-fi sitcom series Mork & Mindy, Williams established a career in both stand-up comedy and feature film acting. He was known for his improvisational skills.
+                
+                Williams won the 1997 Academy Award for Best Supporting Actor for his performance as psychologist Sean Maguire in Good Will Hunting. He also received two Emmy Awards, seven Golden Globe Awards, two Screen Actors Guild Awards, and four Grammy Awards throughout his career. On August 11, 2014, Williams passed away.</p>
+        </div>
+    </section>
+
+    <section>
+        <div>
+            <h3 class="skillsHeading">My Skills</h3>
+            <ol>
+                <li>Improve</li>
+                <li>Making me people laugh</li>
+                <li>Cartoon voices</li>
+            </ol>
+        </div>
+    </section>
+
+    <div class="container">
+    <footer>
+        <div class="item">
+            <a href="https://twitter.com/robinwiliiams_?lang=en"><img src="images/twitter.png"></a>        
+            <a href="https://www.facebook.com/Robin-Williams-1951-2014-1467215200198331/"><img src="images/fb.png"></a>
+            <a href="https://www.instagram.com/therobinwilliams/?hl=en"><img src="images/insta.png" class="social"></a>
+        </div>
+    </footer>
+    </div>
+
+    <script>
+function myFunction() {
+    var x = document.getElementById("myTopNav");
+    if (x.className === "topNav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topNav";
+    }
+}
+    </script>
+</body>
+</html>

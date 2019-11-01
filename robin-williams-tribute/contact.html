@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Robin Williams - Contact</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+        <div class="topNav" id="myTopNav">
+                <a href="index.html" id="topName">Robin Williams</a>
+                <a href="index.html" id="homeIcon">
+                    <i class="fa fa-home"></i>
+                </a>
+                <a href="portfolio.html" id="centerNav">Portfolio</a>
+                <a href="contact.html" id=lastNav>Contact</a>
+                <a href="javascript:void(0);" id="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+    <section>
+        <div>   
+            <h3>Sign Up for the Fan Club</h3>
+            <form>
+                <label>First Name:<br><input type="text"></label><br>
+                <label>Last Name:<br><input type="text"></label><br>
+                <label>Email:<br><input type="text"></label><br>
+                <label>Street Address:<br><input type="text"></label><br>
+                <label>City:<br><input type="text"></label><br>
+                <label>State:<br><input type="text"></label><br>
+                <label>Zip:<br><input type="text"></label><br>
+                <br>
+                <input class="submit" type="submit" value="Submit">
+            </form>
+        </div>
+    </section>
+    <script>
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+    </script>
+</body>
+</html>
