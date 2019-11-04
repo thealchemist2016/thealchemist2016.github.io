@@ -9,6 +9,7 @@
   "author": "Michael Byrd",
   "license": "ISC",
   "devDependencies": {
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "webpack": "^4.41.2"
   }
 }
