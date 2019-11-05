@@ -1,4 +1,4 @@
-$('.navbar').on('click', 'a[href^="#"]', function (event) {
+('.navbar').on('click', 'a[href^="#"]', function (event) {
     event.preventDefault();
 
     $('html, body').animate({
