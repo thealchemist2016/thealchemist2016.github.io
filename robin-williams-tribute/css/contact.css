@@ -1,0 +1,93 @@
+html, body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: lightgray;
+    width: 100%;
+} 
+form {
+    margin: 25px;
+}
+input, label {
+    margin-bottom: 15px;
+}
+
+/* MOBILE devices */
+@media screen and (max-width: 768px) {
+    body {
+        background-color: aliceblue;
+    }
+
+    form {
+        text-align: center;
+    }
+
+    .submit, h3 {
+        width: auto;
+        height: auto;
+        font-size: 1.2em;
+    }
+
+    input, label {
+        width: 85vw;
+        height: 35px;
+        font-size: 1em;
+    }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+
+    body {
+        background-color: lightcyan;
+        height: 170vh;
+    }
+
+    form {
+        text-align: left;
+    }
+
+    h3, .submit {
+        width: auto;
+        height: auto;
+        font-size: 1.25em;
+    }
+
+    .submit {
+        float: right;
+        margin-right: 35px;
+    }
+
+    input, label {
+        width: 90vw;
+        height: 30px;
+        font-size: 1em;
+    }
+}
+
+@media screen and (min-device-width: 1024px) and (max-device-width: 1440px) and  (-webkit-min-device-pixel-ratio: 1){
+
+    body {
+        background-color: azure;
+        height: 175vh;
+    }
+
+    form {
+        text-align: left;
+    }
+
+    h3, .submit {
+        width: auto;
+        height: auto;
+        font-size: 2em;
+    }
+    
+    .submit {
+        float: right;
+        margin-right: 100px;
+    }
+
+    input, label {
+        width: 85vw;
+        height: 40px;
+        font-size: 1.75em;
+        margin-left: 35px;
+    }
+}
