@@ -159,7 +159,7 @@ body{
     padding: 40px;
     background: #21252b;
     box-shadow: 0px 2px 10px #181a20;
-    height: 100%;
+    height: auto;
 }
 
 .cv-block .info-card h2{
