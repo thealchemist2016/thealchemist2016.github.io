@@ -17,6 +17,11 @@ body{
     color: #fff;
 }
 
+.nav-item a {
+    -webkit-transition: .2s;
+    transition: .2s;
+}
+
 .page-navbar .logo{
     font-size: 1.5rem;
 }
@@ -235,6 +240,21 @@ body{
 
 .page-footer .social-icons a:hover{
     opacity: 1;
+}
+
+#work-anchor:target {
+    margin-top: -12px;
+    padding-top: 95px;
+}
+
+#about-me:target {
+    margin-top: -12px;
+    padding-top: 95px;
+}
+
+#contact:target {
+    margin-top: -12px;
+    padding-top: 95px;
 }
 
 @media (min-width: 768px) {
