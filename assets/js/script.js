@@ -1,13 +1,12 @@
-$(".navbar").on("click", 'a[href^="#"]', function(event) {
-  event.preventDefault();
+$('.hamburger').on('click', function () {
 
-  $("html, body").animate(
-    {
-      scrollTop: $($.attr(this, "href")).offset().top
-    },
-    500
-  );
-});
+  $('.menu').toggleClass('open');
+  
+  });
+  
+  $( '.menu a' ).on("click", function(){
+  $('.menu').hide();
+  });
 
 import { configure } from "path/to/honeybadger";
 configure({

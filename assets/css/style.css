@@ -3,6 +3,7 @@
 body{
      font-family: 'Lato', sans-serif;
      background:#2a2f36;
+     max-height: 100vh;
 }
 
 .page-navbar.navbar{
@@ -205,6 +206,7 @@ body{
     border-top: 1px solid #ddd;
     text-align: center;
     padding-bottom: 20px;
+    max-height: 100vh;
 }
 
 .page-footer a{
@@ -223,8 +225,8 @@ body{
     margin-bottom: 16px;
 }
 
-.page-footer .social-icons a{
-    font-size: 28px;
+.social-icons a{
+    font-size: 9px;
     margin: 0 3px;
     color: #ffffff;
     border: 1px solid;

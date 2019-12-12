@@ -91,6 +91,24 @@ li {
     text-align:center;
 }
 
+.menu{
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s;
+  }
+  
+  .open{
+    height: 295px;
+  }
+  
+  .hamburger {
+    cursor: pointer;
+    padding: 15px 10px 15px 0;
+    display: block;
+    float: right;
+    margin-top: 15px;
+  }
+
 /* MOBILE devices */
 @media screen and (max-width: 768px) {
 body {
