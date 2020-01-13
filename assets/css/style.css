@@ -319,3 +319,7 @@ li {
     font-size: xx-large;
     color: #000000;
   }
+
+  li {
+    cursor: pointer;
+    }
