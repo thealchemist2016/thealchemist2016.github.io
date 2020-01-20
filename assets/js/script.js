@@ -1,4 +1,3 @@
-
 $('.hamburger').on('click', function () {
 
   $('.menu').toggleClass('open');
@@ -14,6 +13,6 @@ configure({
   apiKey: "039edf52"
 });
 
-function externalLinks() { for(var c = document.getElementsByTagName("a"), a = 0;a < c.length;a++) { var b = c[a]; b.getAttribute("href") && b.hostname !== location.hostname && (b.target = "_blank") } } ; externalLinks();
+function externalLinks() { for(var c = document.getElementsByTagName("a"),  a = 0;a < c.length;a++) { var b = c[a]; b.getAttribute("href") && b.hostname !== location.hostname && (b.target = "_blank") } } ; externalLinks();
 
 Read //html.com/attributes/a-target/#s
