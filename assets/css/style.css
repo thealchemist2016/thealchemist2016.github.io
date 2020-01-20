@@ -3,6 +3,7 @@
 body{
      font-family: 'Lato', sans-serif;
      background:#2a2f36;
+     max-height: 100vh;
 }
 
 .page-navbar.navbar{
@@ -15,6 +16,11 @@ body{
 
 .page-navbar.navbar-dark .navbar-nav .nav-link {
     color: #fff;
+}
+
+.nav-item a {
+    -webkit-transition: .2s;
+    transition: .2s;
 }
 
 .page-navbar .logo{
@@ -159,7 +165,7 @@ body{
     padding: 40px;
     background: #21252b;
     box-shadow: 0px 2px 10px #181a20;
-    height: 100%;
+    height: auto;
 }
 
 .cv-block .info-card h2{
@@ -200,6 +206,7 @@ body{
     border-top: 1px solid #ddd;
     text-align: center;
     padding-bottom: 20px;
+    max-height: 100vh;
 }
 
 .page-footer a{
@@ -218,16 +225,16 @@ body{
     margin-bottom: 16px;
 }
 
-.page-footer .social-icons a{
-    font-size: 28px;
+.social-icons a{
+    font-size: 9px;
     margin: 0 3px;
-    color: #ffffff;
+    color: #000000;
     border: 1px solid;
     opacity: 0.75;
     border-radius: 50%;
     width: 46px;
     display: inline-block;
-    height: 46x;
+    height: 46px;
     text-align: center;
     background-color: #72757a;
     line-height: 50px;
@@ -235,6 +242,21 @@ body{
 
 .page-footer .social-icons a:hover{
     opacity: 1;
+}
+
+#work-anchor:target {
+    margin-top: -12px;
+    padding-top: 95px;
+}
+
+#about-me:target {
+    margin-top: -12px;
+    padding-top: 95px;
+}
+
+#contact:target {
+    margin-top: -12px;
+    padding-top: 95px;
 }
 
 @media (min-width: 768px) {
@@ -277,3 +299,27 @@ li {
     color: #000000;
 }
 
+.ion-logo-angular {
+    font-size: xx-large;
+    color: #cc0b0b;
+  }
+
+.ion-logo-nodejs {
+    font-size: xx-large;
+    color: green;
+  }
+
+  .ion-logo-ionic {
+    font-size: xx-large;
+    color:rgb(28, 60, 240)
+
+  }
+
+  .ion-logo-javascript {
+    font-size: xx-large;
+    color: #000000;
+  }
+
+  li {
+    cursor: pointer;
+    }

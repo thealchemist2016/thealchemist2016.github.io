@@ -10,17 +10,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-        <div class="topNav" id="myTopNav">
-                <a href="index.html" id="topName">Robin Williams</a>
-                <a href="index.html" id="homeIcon">
-                    <i class="fa fa-home"></i>
-                </a>
-                <a href="portfolio.html" id="centerNav">Portfolio</a>
-                <a href="contact.html" id=lastNav>Contact</a>
-                <a href="javascript:void(0);" id="icon" onclick="myFunction()">
-                    <i class="fa fa-bars"></i>
-                </a>
-            </div>
+    <div class="topNav" id="myTopNav">
+        <a href="index.html" id="topName">Robin Williams</a>
+        <a href="index.html" id="homeIcon">Home</a>
+        <a href="javascript:void(0);" id="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+        <a href="portfolio.html" id="centerNav">Portfolio</a>
+        <a href="contact.html" id=lastNav>Contact</a>
+    </div>
     <section>
         <div class="films">
             <h1>Robin's Filmography</h1>
@@ -94,14 +92,14 @@
         </div>
     </section>
     <script>
-    function myFunction() {
-        var x = document.getElementById("myTopnav");
-        if (x.className === "topnav") {
-            x.className += " responsive";
-        } else {
-            x.className = "topnav";
+        function myFunction() {
+            var x = document.getElementById("myTopNav");
+            if (x.className === "topNav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topNav";
+            }
         }
-    }
-        </script>
+            </script>
 </body>
 </html>

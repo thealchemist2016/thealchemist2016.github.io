@@ -49,19 +49,19 @@ li {
 
 .topNav {
     background-color: #333;
-    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    transition: top 0.3s;
 }
 
 .topNav a {
-    float: inline-end;
-    display: inline-flex;
+    float: left;
+    display: block;
     color: #f2f2f2;
-    padding: 14px 7px;
+    padding: 15px;
     text-decoration: none;
     font-size: 1.0625em;
-    border: 5px;
-    margin-right: 25px;
-    margin-left: 10px;
 }
 
 .topNav a:hover {
@@ -90,9 +90,9 @@ li {
 .item img {
     text-align:center;
 }
-
+  
 /* MOBILE devices */
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 300px) and (max-width: 600px) {
 body {
     background-color: aliceblue;
     text-align: center;
@@ -115,50 +115,48 @@ p, li {
     font-size: .75em;
 }
 
-
 .topNav a:not(:first-child){
     display: none;
 }
 
-
 #icon {
     float: right;
     display: block;
+    padding: 14px 32px 14px 0px;
 }
+
 #homeIcon {
     float: left;
     display: block;
+    padding: 14px 0px 14px 32px;
 }
-}
+
 .item img {
     width: 7vh;
     height: auto;
 }
 
-@media screen and (max-width: 768px) {
-    .topNav.responsive {
+.topNav.responsive {
         position: relative;
-    }
+ }
 
-    #icon.responsive {
-        position: relative;
-        right: 0;
-        top: 0;
-    }
+.topNav a:not(:last-child){
+    display: none;
+}
 
-    .topNav a:not(:last-child){
-        display: none;
-        clear: both;
-    }
-    .topNav.responsive a:not(:first-child) {
+.topNav.responsive a:not(:first-child) {
         float: none;
         display: block;
-        text-align: left;
-    }
+        text-align: center;
+}
+
+.topNav.responsive #centerNav {
+    clear: both;
+}
 }
 
 /* TABLET devices */
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+@media only screen and (min-device-width: 601px) and (max-device-width: 992px) and (-webkit-min-device-pixel-ratio: 2) {
 
 body {
     background-color: lightcyan;
@@ -181,28 +179,35 @@ p, li {
 }
 
 .topNav {
-    width: 100vw;
+    width: 100%;
     background-color: #333;
-    overflow: hidden;
+    position: fixed;
+    top: 0;
+    transition: top 0.3s;
+}
+
+#topNav a {
+    float: left;
     display: block;
-    float: right;
-    text-align: right;
     color: #f2f2f2;
-    padding: 14px 16px;
     text-decoration: none;
     font-size: 1.0625em;
-    padding-right: 5vw;
+    text-align: center;
+    padding: 15px;
 }
+
 #topName {
     display: block; 
     float: left;  
     padding-left: 10vw;
 }
+
 #centerNav {
     display: block;
     position: fixed;
     left: 40vw;
 }
+
 #lastNav {
     display: block;
     position: fixed;
@@ -227,6 +232,7 @@ p, li {
 #homeIcon {
     display:none;
 }
+
 #icon {
     display:none;
 }
@@ -239,7 +245,7 @@ p, li {
 }
 
 /* Non-retina screens */
-@media screen and (min-device-width: 1024px) and (max-device-width: 1440px) and  (-webkit-min-device-pixel-ratio: 1){
+@media screen and (min-device-width: 993px) and (max-width: 1600px) and  (-webkit-min-device-pixel-ratio: 1){
 
 body {
     background-color: azure;
@@ -262,28 +268,27 @@ p, li {
 }
 
 .topNav{
-    width: 100vw;
+    width: 100%;
     background-color: #333;
-    overflow: hidden;
-    position: relative;
-    display: block;
-    float: right;
-    text-align: right;
-    color: #f2f2f2;
-    padding: 16px;
-    text-decoration: none;
-    font-size: 2em;
-    padding-right: 5vw;
-
+    position: fixed;
+    top: 0;
+    transition: 0.3s;
 }
-#topName {
+
+.topNav a {
  display: block; 
- float: left;  
- padding-left: 10vw;
- text-transform: uppercase;
- font-size: 1em;
+ float: right;  
+ padding: 22px 88px;
+ font-size: 2em;
+ color: #f2f2f2;
+ text-align: center;
 }
 
+#topName {
+    float: left;
+    padding-left: 32px;
+    text-transform: uppercase;
+}
 
 .topNav a:hover {
     background-color: #ddd;
@@ -302,7 +307,6 @@ p, li {
 #icon {
     display: none;
 }
-
 
 .item img {
     width: 7vh;
