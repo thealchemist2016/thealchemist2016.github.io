@@ -354,8 +354,17 @@
               <div class="col-md-12">
                 <h3 class="text-center">Languages Over the Last 30 Days</h3>
                 <br/>
-                <figure><embed src="https://wakatime.com/share/@thealchemist2016/929d7497-697a-4908-a6ec-f60df0eda8cc.svg"></embed></figure>              </div>
-            </div>
+                
+$.ajax({
+  type: 'GET',
+  url: 'https://wakatime.com/share/@thealchemist2016/348ab73b-acbe-48e1-870f-c96f64c81b85.json',
+  dataType: 'jsonp',
+  success: function(response) {
+    console.log(response.data);
+  },
+});
+                
+                </div>
         
             <div class="item" style="border-bottom:none; padding-top: 10%; text-align: right;">
               <div class="row">
