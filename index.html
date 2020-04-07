@@ -355,16 +355,17 @@
                 <h3 class="text-center">Languages Over the Last 30 Days</h3>
                 <br/>
                 
-$.ajax({
-  type: 'GET',
-  url: 'https://wakatime.com/share/@thealchemist2016/348ab73b-acbe-48e1-870f-c96f64c81b85.json',
-  dataType: 'jsonp',
-  success: function(response) {
-    console.log(response.data);
-  },
-});
-                
-                </div>
+                <script>
+                  $.ajax({
+                    type: 'GET',
+                    url: 'https://wakatime.com/share/@thealchemist2016/348ab73b-acbe-48e1-870f-c96f64c81b85.json',
+                    dataType: 'jsonp',
+                    success: function(response) {
+                    console.log(response.data);
+                    },
+                  });
+                </script>
+            </div>
         
             <div class="item" style="border-bottom:none; padding-top: 10%; text-align: right;">
               <div class="row">
