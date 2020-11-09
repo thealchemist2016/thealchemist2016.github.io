@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "jshint": "npm:undefined@^"
+  }
+}
