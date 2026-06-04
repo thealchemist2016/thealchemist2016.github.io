@@ -14,6 +14,7 @@ interface Project {
   thumbnail: string;
   isApp: boolean;
   isMobile: boolean;
+  screenshots?: string[];
 }
 
 // Custom inline SVG icons for brands because they are missing in local lucide-react package version
@@ -84,7 +85,7 @@ export default function App() {
       tags: ['React Native', 'Expo', 'TypeScript', 'Async Storage', 'Bun'],
       githubUrl: 'https://github.com/thealchemist2016/SmartTodo',
       liveUrl: '/SmartTodo/index.html', // Served out of public/
-      thumbnail: 'public/assets/screenshots/Screenshot (21).png', // Use one of the screenshots as thumbnail
+      thumbnail: '/public/assets/screenshots/Screenshot (21).png', // Use one of the screenshots as thumbnail
       isApp: true,
       isMobile: true
     },
@@ -93,11 +94,19 @@ export default function App() {
       title: 'XS-Records',
       description: 'A database-driven distribution platform used by Indie Artists and Record Labels to submit releases. Features robust backend storage and admin management consoles.',
       tags: ['React', 'Redux', 'MongoDB', 'Node.js', 'Express', 'MERN'],
-      githubUrl: 'https://github.com/thealchemist2016/thealchemist2016.github.io', // Template source or fallback
-      liveUrl: '/robin-williams-tribute/portfolio.html', // Fallback details page or custom screenshots
-      thumbnail: 'public/assets/screenshots/Screenshot (20).png',
-      isApp: false, // We represent this using screenshots / slides
-      isMobile: false
+      githubUrl: 'https://github.com/thealchemist2016/team-code-ctrl', 
+      liveUrl: '/XS-Records/index.html',
+      thumbnail: '/public/assets/screenshots/Screenshot (20).png',
+      isApp: true, 
+      isMobile: false,
+      screenshots: [
+        '/public/assets/screenshots/Screenshot (20).png',
+        '/public/assets/screenshots/Screenshot (21).png',
+        '/public/assets/screenshots/Screenshot (22).png',
+        '/public/assets/screenshots/Screenshot (23).png',
+        '/public/assets/screenshots/Screenshot (24).png',
+        '/public/assets/screenshots/Screenshot (25).png'
+      ]
     },
     {
       id: 'robin-williams',
@@ -106,7 +115,7 @@ export default function App() {
       tags: ['HTML5', 'CSS3', 'Flexbox', 'Responsive Design'],
       githubUrl: 'https://github.com/thealchemist2016/thealchemist2016.github.io',
       liveUrl: '/robin-williams-tribute/index.html', // Served out of public/
-      thumbnail: 'public/assets/screenshots/Screenshot (22).png',
+      thumbnail: '/public/assets/screenshots/Screenshot (22).png',
       isApp: true,
       isMobile: false
     },
@@ -116,10 +125,79 @@ export default function App() {
       description: 'A cross-platform page-turner mobile book app designed to render novels, children stories, or comic strip collections with a clean, dynamic chapter manager.',
       tags: ['Ionic', 'Cordova', 'AngularJS', 'Android', 'iOS'],
       githubUrl: 'https://github.com/thealchemist2016/IonicCordovaBook1',
-      liveUrl: '/robin-williams-tribute/portfolio.html',
-      thumbnail: 'public/assets/screenshots/Screenshot (24).png',
+      thumbnail: '/public/assets/screenshots/Screenshot (24).png',
       isApp: false,
-      isMobile: true
+      isMobile: true,
+      screenshots: [
+        '/public/assets/screenshots/Screenshot (24).png',
+        '/public/assets/screenshots/Screenshot (20).png'
+      ]
+    },
+    {
+      id: 'noutube',
+      title: 'NouTube Player',
+      description: 'An ad-free native YouTube player and background music player combined into a single lightweight client. Designed for optimization and background audio playback.',
+      tags: ['TypeScript', 'Node.js', 'Electron', 'APIs', 'Media Player'],
+      githubUrl: 'https://github.com/thealchemist2016/NouTube',
+      liveUrl: 'https://github.com/thealchemist2016/NouTube',
+      thumbnail: '/public/assets/screenshots/Screenshot (23).png',
+      isApp: false,
+      isMobile: false
+    },
+    {
+      id: 'chatgpt-nodejs',
+      title: 'ChatGPT NodeJS API',
+      description: 'A scalable Node.js REST API proxy configured to interface securely with OpenAI\'s GPT endpoints, incorporating route middleware and CORS configurations.',
+      tags: ['TypeScript', 'Node.js', 'Express', 'OpenAI API', 'REST API'],
+      githubUrl: 'https://github.com/thealchemist2016/chat-gpt-nodejs',
+      liveUrl: 'https://github.com/thealchemist2016/chat-gpt-nodejs',
+      thumbnail: '/public/assets/screenshots/Screenshot (25).png',
+      isApp: false,
+      isMobile: false
+    },
+    {
+      id: 'web-crawler',
+      title: 'Sports Web Crawler',
+      description: 'A Python scraper designed to parse, extract, and stream live sports scores, match commentaries, and detailed scorecards from online sports portals.',
+      tags: ['Python', 'BeautifulSoup', 'Scrapy', 'CLI', 'Automation'],
+      githubUrl: 'https://github.com/thealchemist2016/Web-Crawler',
+      liveUrl: 'https://github.com/thealchemist2016/Web-Crawler',
+      thumbnail: '/public/assets/screenshots/Screenshot (20).png', // reuse index or other assets
+      isApp: false,
+      isMobile: false
+    },
+    {
+      id: 'windows-debloater',
+      title: 'Windows 10 Debloater',
+      description: 'A popular shell scripting utility designed to remove Windows bloatware, disable telemetry, clean registry fragments, and optimize process schedulers.',
+      tags: ['PowerShell', 'Scripting', 'Automation', 'Windows Admin'],
+      githubUrl: 'https://github.com/thealchemist2016/Windows10Debloater',
+      liveUrl: 'https://github.com/thealchemist2016/Windows10Debloater',
+      thumbnail: '/public/assets/screenshots/Screenshot (22).png',
+      isApp: false,
+      isMobile: false
+    },
+    {
+      id: 'login-register',
+      title: 'Animated Authentication Portal',
+      description: 'A frontend client demonstrating secure credential entry, utilizing fluid CSS animations and custom React form handlers.',
+      tags: ['React', 'JavaScript', 'CSS Animations', 'Form Validation'],
+      githubUrl: 'https://github.com/thealchemist2016/login-register-app',
+      liveUrl: 'https://github.com/thealchemist2016/login-register-app',
+      thumbnail: '/public/assets/screenshots/Screenshot (24).png',
+      isApp: false,
+      isMobile: false
+    },
+    {
+      id: 'express-course',
+      title: 'Express.js API Starter',
+      description: 'An introductory backend environment demonstrating clean architecture, route handlers, logger middleware, and API endpoints using Node/Express.',
+      tags: ['JavaScript', 'Node.js', 'Express', 'Backend Starter'],
+      githubUrl: 'https://github.com/thealchemist2016/node-express-course',
+      liveUrl: 'https://github.com/thealchemist2016/node-express-course',
+      thumbnail: '/public/assets/screenshots/Screenshot (21).png',
+      isApp: false,
+      isMobile: false
     }
   ];
 
@@ -357,10 +435,10 @@ export default function App() {
         <ProjectViewer
           title={selectedProject.title}
           description={selectedProject.description}
-          tags={selectedProject.tags}
-          liveUrl={selectedProject.liveUrl || ''}
+          liveUrl={selectedProject.liveUrl}
           githubUrl={selectedProject.githubUrl}
           isMobile={selectedProject.isMobile}
+          screenshots={selectedProject.screenshots}
           onClose={() => setSelectedProject(null)}
         />
       )}
