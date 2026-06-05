@@ -85,7 +85,7 @@ export default function App() {
       tags: ['React Native', 'Expo', 'TypeScript', 'Async Storage', 'Bun'],
       githubUrl: 'https://github.com/thealchemist2016/SmartTodo',
       liveUrl: '/SmartTodo/index.html', // Served out of public/
-      thumbnail: '/public/assets/screenshots/Screenshot (21).png', // Use one of the screenshots as thumbnail
+      thumbnail: '/assets/screenshots/Screenshot (21).png', // Use one of the screenshots as thumbnail
       isApp: true,
       isMobile: true
     },
@@ -96,16 +96,16 @@ export default function App() {
       tags: ['React', 'Redux', 'MongoDB', 'Node.js', 'Express', 'MERN'],
       githubUrl: 'https://github.com/thealchemist2016/team-code-ctrl', 
       liveUrl: '/XS-Records/index.html',
-      thumbnail: '/public/assets/screenshots/Screenshot (20).png',
+      thumbnail: '/assets/screenshots/Screenshot (20).png',
       isApp: true, 
       isMobile: false,
       screenshots: [
-        '/public/assets/screenshots/Screenshot (20).png',
-        '/public/assets/screenshots/Screenshot (21).png',
-        '/public/assets/screenshots/Screenshot (22).png',
-        '/public/assets/screenshots/Screenshot (23).png',
-        '/public/assets/screenshots/Screenshot (24).png',
-        '/public/assets/screenshots/Screenshot (25).png'
+        '/assets/screenshots/Screenshot (20).png',
+        '/assets/screenshots/Screenshot (21).png',
+        '/assets/screenshots/Screenshot (22).png',
+        '/assets/screenshots/Screenshot (23).png',
+        '/assets/screenshots/Screenshot (24).png',
+        '/assets/screenshots/Screenshot (25).png'
       ]
     },
     {
@@ -115,7 +115,7 @@ export default function App() {
       tags: ['HTML5', 'CSS3', 'Flexbox', 'Responsive Design'],
       githubUrl: 'https://github.com/thealchemist2016/thealchemist2016.github.io',
       liveUrl: '/robin-williams-tribute/index.html', // Served out of public/
-      thumbnail: '/public/assets/screenshots/Screenshot (22).png',
+      thumbnail: '/assets/screenshots/Screenshot (22).png',
       isApp: true,
       isMobile: false
     },
@@ -125,12 +125,12 @@ export default function App() {
       description: 'A cross-platform page-turner mobile book app designed to render novels, children stories, or comic strip collections with a clean, dynamic chapter manager.',
       tags: ['Ionic', 'Cordova', 'AngularJS', 'Android', 'iOS'],
       githubUrl: 'https://github.com/thealchemist2016/IonicCordovaBook1',
-      thumbnail: '/public/assets/screenshots/Screenshot (24).png',
+      thumbnail: '/assets/screenshots/Screenshot (24).png',
       isApp: false,
       isMobile: true,
       screenshots: [
-        '/public/assets/screenshots/Screenshot (24).png',
-        '/public/assets/screenshots/Screenshot (20).png'
+        '/assets/screenshots/Screenshot (24).png',
+        '/assets/screenshots/Screenshot (20).png'
       ]
     },
     {
@@ -140,7 +140,7 @@ export default function App() {
       tags: ['TypeScript', 'Node.js', 'Electron', 'APIs', 'Media Player'],
       githubUrl: 'https://github.com/thealchemist2016/NouTube',
       liveUrl: 'https://github.com/thealchemist2016/NouTube',
-      thumbnail: '/public/assets/screenshots/Screenshot (23).png',
+      thumbnail: '/assets/screenshots/Screenshot (23).png',
       isApp: false,
       isMobile: false
     },
@@ -151,7 +151,7 @@ export default function App() {
       tags: ['TypeScript', 'Node.js', 'Express', 'OpenAI API', 'REST API'],
       githubUrl: 'https://github.com/thealchemist2016/chat-gpt-nodejs',
       liveUrl: 'https://github.com/thealchemist2016/chat-gpt-nodejs',
-      thumbnail: '/public/assets/screenshots/Screenshot (25).png',
+      thumbnail: '/assets/screenshots/Screenshot (25).png',
       isApp: false,
       isMobile: false
     },
@@ -162,7 +162,7 @@ export default function App() {
       tags: ['Python', 'BeautifulSoup', 'Scrapy', 'CLI', 'Automation'],
       githubUrl: 'https://github.com/thealchemist2016/Web-Crawler',
       liveUrl: 'https://github.com/thealchemist2016/Web-Crawler',
-      thumbnail: '/public/assets/screenshots/Screenshot (20).png', // reuse index or other assets
+      thumbnail: '/assets/screenshots/Screenshot (20).png', // reuse index or other assets
       isApp: false,
       isMobile: false
     },
@@ -173,7 +173,7 @@ export default function App() {
       tags: ['PowerShell', 'Scripting', 'Automation', 'Windows Admin'],
       githubUrl: 'https://github.com/thealchemist2016/Windows10Debloater',
       liveUrl: 'https://github.com/thealchemist2016/Windows10Debloater',
-      thumbnail: '/public/assets/screenshots/Screenshot (22).png',
+      thumbnail: '/assets/screenshots/Screenshot (22).png',
       isApp: false,
       isMobile: false
     },
@@ -184,7 +184,7 @@ export default function App() {
       tags: ['React', 'JavaScript', 'CSS Animations', 'Form Validation'],
       githubUrl: 'https://github.com/thealchemist2016/login-register-app',
       liveUrl: 'https://github.com/thealchemist2016/login-register-app',
-      thumbnail: '/public/assets/screenshots/Screenshot (24).png',
+      thumbnail: '/assets/screenshots/Screenshot (24).png',
       isApp: false,
       isMobile: false
     },
@@ -195,7 +195,7 @@ export default function App() {
       tags: ['JavaScript', 'Node.js', 'Express', 'Backend Starter'],
       githubUrl: 'https://github.com/thealchemist2016/node-express-course',
       liveUrl: 'https://github.com/thealchemist2016/node-express-course',
-      thumbnail: '/public/assets/screenshots/Screenshot (21).png',
+      thumbnail: '/assets/screenshots/Screenshot (21).png',
       isApp: false,
       isMobile: false
     }
@@ -240,7 +240,7 @@ export default function App() {
             
             <div className="avatar-container">
               <div className="avatar-frame">
-                <img src="/public/assets/avatar.jpg" alt="Michael Byrd Avatar" />
+                <img src="/assets/avatar.jpg" alt="Michael Byrd Avatar" />
               </div>
             </div>
           </div>
