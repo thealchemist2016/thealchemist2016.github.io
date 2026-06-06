@@ -122,10 +122,12 @@ export const TerminalWidget: React.FC<TerminalWidgetProps> = ({ onLaunchProject 
     { text: '', type: 'output' },
   ]);
   
-  const terminalEndRef = useRef<HTMLDivElement>(null);
+  const bodyRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    terminalEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (bodyRef.current) {
+      bodyRef.current.scrollTop = bodyRef.current.scrollHeight;
+    }
   }, [history]);
 
   // Navigate the virtual FS tree to find a node by its path array
@@ -287,13 +289,12 @@ export const TerminalWidget: React.FC<TerminalWidgetProps> = ({ onLaunchProject 
         </div>
         <div className="terminal-title">bash - mike@byrd-dev:{currentPathStr}</div>
       </div>
-      <div className="terminal-body">
+      <div className="terminal-body" ref={bodyRef}>
         {history.map((log, index) => (
           <div key={index} className={`terminal-line ${log.type}`}>
             {log.text}
           </div>
         ))}
-        <div ref={terminalEndRef} />
         
         <form 
           className="terminal-prompt"
