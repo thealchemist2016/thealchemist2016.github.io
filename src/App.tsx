@@ -98,7 +98,7 @@ export default function App() {
       description: 'An AI-powered smart productivity mobile application that automatically prioritizes and schedules tasks. Built as a cross-platform React Native app compiled for the web.',
       tags: ['React Native', 'Expo', 'TypeScript', 'Async Storage', 'Bun'],
       githubUrl: 'https://github.com/thealchemist2016/SmartTodo',
-      liveUrl: '/SmartTodo/index.html', // Served out of public/
+      liveUrl: 'local://smarttodo',
       thumbnail: '/assets/screenshots/smarttodo_preview.png',
       isApp: true,
       isMobile: true
@@ -109,7 +109,7 @@ export default function App() {
       description: 'A database-driven distribution platform used by Indie Artists and Record Labels to submit releases. Features robust backend storage and admin management consoles.',
       tags: ['React', 'Redux', 'MongoDB', 'Node.js', 'Express', 'MERN'],
       githubUrl: 'https://github.com/thealchemist2016/team-code-ctrl', 
-      liveUrl: '/XS-Records/index.html',
+      liveUrl: 'local://xs-records',
       thumbnail: '/assets/screenshots/xs_records_preview.png',
       isApp: true, 
       isMobile: false,
@@ -123,7 +123,7 @@ export default function App() {
       description: 'A frontend client demonstrating secure credential entry, utilizing fluid CSS animations and custom React form handlers.',
       tags: ['React', 'JavaScript', 'CSS Animations', 'Form Validation'],
       githubUrl: 'https://github.com/thealchemist2016/login-register-app',
-      liveUrl: '/login-register/index.html',
+      liveUrl: 'local://login-register',
       thumbnail: '/assets/screenshots/auth_portal_preview.png',
       isApp: true,
       isMobile: false
