@@ -219,7 +219,6 @@ export const ProjectViewer: React.FC<ProjectViewerProps> = ({
                   className="phone-screen" 
                   title={`${title} mobile view`}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  sandbox="allow-scripts allow-same-origin allow-forms"
                 />
               </div>
             </div>
@@ -229,7 +228,6 @@ export const ProjectViewer: React.FC<ProjectViewerProps> = ({
               className="viewer-iframe" 
               title={`${title} full view`}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              sandbox="allow-scripts allow-same-origin allow-forms"
             />
           )
         )}
