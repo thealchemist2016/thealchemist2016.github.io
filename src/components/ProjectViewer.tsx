@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { X, ExternalLink, Smartphone, Monitor, ChevronLeft, ChevronRight } from 'lucide-react';
+import { AgentMeshOrchestrator } from './AgentMeshOrchestrator';
+import { SmartTodoApp } from './apps/SmartTodoApp';
+import { XSRecordsApp } from './apps/XSRecordsApp';
+import { AuthPortalApp } from './apps/AuthPortalApp';
 
 interface ProjectViewerProps {
   title: string;
@@ -40,6 +44,7 @@ export const ProjectViewer: React.FC<ProjectViewerProps> = ({
   const [usePhoneFrame, setUsePhoneFrame] = useState<boolean>(isMobile);
   const [currentSlide, setCurrentSlide] = useState<number>(0);
   const hasSlides = screenshots && screenshots.length > 0;
+  const isLocalApp = liveUrl?.startsWith('local://');
   const [viewMode, setViewMode] = useState<'app' | 'screenshots'>(liveUrl ? 'app' : 'screenshots');
 
   const nextSlide = () => {
@@ -68,7 +73,7 @@ export const ProjectViewer: React.FC<ProjectViewerProps> = ({
 
         <div className="viewer-actions" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           {/* Toggle between App and Screenshots if both are available */}
-          {liveUrl && hasSlides && (
+          {liveUrl && hasSlides && !isLocalApp && (
             <div className="toggle-group" style={{ display: 'inline-flex', background: 'rgba(255,255,255,0.05)', borderRadius: '6px', padding: '2px', border: '1px solid var(--glass-border)' }}>
               <button
                 className="toggle-btn"
@@ -107,8 +112,8 @@ export const ProjectViewer: React.FC<ProjectViewerProps> = ({
             </div>
           )}
 
-          {/* Toggle chassis frame for responsive apps (only if not viewing screenshot deck) */}
-          {viewMode === 'app' && liveUrl && (
+          {/* Toggle chassis frame for responsive apps */}
+          {viewMode === 'app' && liveUrl && !isLocalApp && (
             <button 
               className="btn btn-secondary"
               style={{ padding: '6px 12px', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '6px' }}
@@ -133,7 +138,7 @@ export const ProjectViewer: React.FC<ProjectViewerProps> = ({
             </a>
           )}
 
-          {viewMode === 'app' && liveUrl && (
+          {viewMode === 'app' && liveUrl && !isLocalApp && (
             <a 
               href={liveUrl} 
               target="_blank" 
@@ -209,6 +214,12 @@ export const ProjectViewer: React.FC<ProjectViewerProps> = ({
               Slide {currentSlide + 1} of {screenshots.length}
             </p>
           </div>
+        ) : isLocalApp ? (
+          /* Inline Native Components */
+          liveUrl === 'local://agentmesh' ? <AgentMeshOrchestrator /> :
+          liveUrl === 'local://smarttodo' ? <SmartTodoApp /> :
+          liveUrl === 'local://xs-records' ? <XSRecordsApp /> :
+          liveUrl === 'local://login-register' ? <AuthPortalApp /> : null
         ) : (
           /* Live Iframe Mode */
           usePhoneFrame ? (

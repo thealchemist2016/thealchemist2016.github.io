@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Mail, Briefcase, GraduationCap, Code2, Database, Terminal, ArrowRight, CheckCircle } from 'lucide-react';
+import { Mail, Briefcase, GraduationCap, Code2, ArrowRight, CheckCircle, Bot, Brain } from 'lucide-react';
 import { ProjectCard } from './components/ProjectCard';
 import { ProjectViewer } from './components/ProjectViewer';
 import { StatsDashboard } from './components/StatsDashboard';
@@ -82,13 +82,24 @@ export default function App() {
 
   const projects: Project[] = [
     {
+      id: 'agentmesh',
+      title: 'AgentMesh Orchestrator',
+      description: 'An interactive multi-agent system builder and simulation dashboard. Design agent prompts, select topologies (Pipelines, Supervisor-Worker, Debates), and trigger real-time simulated telemetry.',
+      tags: ['React', 'TypeScript', 'AI Orchestration', 'Multi-Agent Systems', 'Telemetry'],
+      githubUrl: 'https://github.com/thealchemist2016/agentmesh-orchestrator',
+      liveUrl: 'local://agentmesh',
+      thumbnail: '/assets/screenshots/agentmesh_preview.png',
+      isApp: true,
+      isMobile: false
+    },
+    {
       id: 'smarttodo',
       title: 'SmartTodo',
       description: 'An AI-powered smart productivity mobile application that automatically prioritizes and schedules tasks. Built as a cross-platform React Native app compiled for the web.',
       tags: ['React Native', 'Expo', 'TypeScript', 'Async Storage', 'Bun'],
       githubUrl: 'https://github.com/thealchemist2016/SmartTodo',
-      liveUrl: '/SmartTodo/index.html', // Served out of public/
-      thumbnail: '/assets/screenshots/Screenshot (21).png', // Use one of the screenshots as thumbnail
+      liveUrl: 'local://smarttodo',
+      thumbnail: '/assets/screenshots/smarttodo_preview.png',
       isApp: true,
       isMobile: true
     },
@@ -98,17 +109,12 @@ export default function App() {
       description: 'A database-driven distribution platform used by Indie Artists and Record Labels to submit releases. Features robust backend storage and admin management consoles.',
       tags: ['React', 'Redux', 'MongoDB', 'Node.js', 'Express', 'MERN'],
       githubUrl: 'https://github.com/thealchemist2016/team-code-ctrl', 
-      liveUrl: '/XS-Records/index.html',
-      thumbnail: '/assets/screenshots/Screenshot (20).png',
+      liveUrl: 'local://xs-records',
+      thumbnail: '/assets/screenshots/xs_records_preview.png',
       isApp: true, 
       isMobile: false,
       screenshots: [
-        '/assets/screenshots/Screenshot (20).png',
-        '/assets/screenshots/Screenshot (21).png',
-        '/assets/screenshots/Screenshot (22).png',
-        '/assets/screenshots/Screenshot (23).png',
-        '/assets/screenshots/Screenshot (24).png',
-        '/assets/screenshots/Screenshot (25).png'
+        '/assets/screenshots/xs_records_preview.png'
       ]
     },
     {
@@ -117,8 +123,8 @@ export default function App() {
       description: 'A frontend client demonstrating secure credential entry, utilizing fluid CSS animations and custom React form handlers.',
       tags: ['React', 'JavaScript', 'CSS Animations', 'Form Validation'],
       githubUrl: 'https://github.com/thealchemist2016/login-register-app',
-      liveUrl: '/login-register/index.html',
-      thumbnail: '/assets/screenshots/Screenshot (24).png',
+      liveUrl: 'local://login-register',
+      thumbnail: '/assets/screenshots/auth_portal_preview.png',
       isApp: true,
       isMobile: false
     }
@@ -149,9 +155,9 @@ export default function App() {
           <div className="hero-grid">
             <div className="hero-content">
               <h4>Available for Work</h4>
-              <h1 className="gradient-text">Full-Stack Software Engineer</h1>
+              <h1 className="gradient-text">AI Agent Architect & Developer</h1>
               <p>
-                Hi, I'm Michael James Byrd Jr. I specialize in building user-first applications with React, React Native, and Node.js. I bridge the gap between robust system architecture and fluid client experiences.
+                Hi, I'm Michael James Byrd Jr. I specialize in building autonomous AI agents and orchestrating multi-agent systems. I bridge the gap between robust system architecture and future-proof AI solutions.
               </p>
               <div className="hero-buttons">
                 <a href="#projects" className="btn btn-primary">
@@ -204,7 +210,7 @@ export default function App() {
         <div className="container">
           <h2 className="section-title">About Me</h2>
           <p className="subtitle">
-            A software engineer with a passion for building robust digital solutions that solve real-world problems.
+            An AI Agent Architect with a passion for building autonomous agents, multi-agent orchestrations, and future-proof digital solutions.
           </p>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px', margin: '40px 0' }}>
@@ -216,10 +222,10 @@ export default function App() {
               </h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                 <div>
-                  <h4 style={{ fontSize: '1rem', color: 'var(--text-primary)' }}>Web Developer</h4>
+                  <h4 style={{ fontSize: '1rem', color: 'var(--text-primary)' }}>AI & Web Developer</h4>
                   <p style={{ fontSize: '0.85rem', color: 'var(--accent)' }}>Phoenix Technology | 2017 - Present</p>
                   <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', marginTop: '4px' }}>
-                    Leading frontend design and API integrations. Specializing in customer-facing React portals and database architectures.
+                    Leading the integration of LLMs and autonomous agents. Specializing in multi-agent orchestration, prompt engineering, and building robust AI-driven applications.
                   </p>
                 </div>
                 <div>
@@ -242,7 +248,7 @@ export default function App() {
                 <h4 style={{ fontSize: '1rem', color: 'var(--text-primary)' }}>Full Stack Web Development Program</h4>
                 <p style={{ fontSize: '0.85rem', color: 'var(--accent)' }}>Southern Careers Institute | 2018 - 2019</p>
                 <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', marginTop: '8px' }}>
-                  Acquired deep knowledge of web application frameworks, ASP.NET, Node.js, database integration with SQL/NoSQL, and JavaScript. Dedicating over 60+ hours weekly on complex project builds.
+                  Acquired deep knowledge of web application frameworks, ASP.NET, Node.js, database integration with SQL/NoSQL, and JavaScript. Transitioned into AI development, focusing on vector databases, RAG systems, and LLM integrations.
                 </p>
               </div>
             </div>
@@ -252,50 +258,50 @@ export default function App() {
           <div className="toolset-section">
             <h3 className="section-title" style={{ fontSize: '1.75rem' }}>Core Technical Stack</h3>
             <div className="tech-categories">
-              {/* Frontend Card */}
+              {/* AI Card */}
               <div className="glass-card tech-category-card">
                 <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <Code2 size={18} />
-                  Frontend Tools
+                  <Bot size={18} />
+                  AI & LLMs
                 </h3>
                 <div className="tech-list">
-                  <span className="tech-item"><CheckCircle size={12} color="#dc2626" /> React</span>
-                  <span className="tech-item"><CheckCircle size={12} color="#dc2626" /> React Native (Expo)</span>
-                  <span className="tech-item"><CheckCircle size={12} color="#dc2626" /> TypeScript</span>
-                  <span className="tech-item"><CheckCircle size={12} color="#dc2626" /> AngularJS</span>
-                  <span className="tech-item"><CheckCircle size={12} color="#dc2626" /> HTML5 / CSS3</span>
-                  <span className="tech-item"><CheckCircle size={12} color="#dc2626" /> Responsive Design</span>
+                  <span className="tech-item"><CheckCircle size={12} color="#dc2626" /> OpenAI API</span>
+                  <span className="tech-item"><CheckCircle size={12} color="#dc2626" /> Anthropic Claude</span>
+                  <span className="tech-item"><CheckCircle size={12} color="#dc2626" /> LangChain</span>
+                  <span className="tech-item"><CheckCircle size={12} color="#dc2626" /> Vercel AI SDK</span>
+                  <span className="tech-item"><CheckCircle size={12} color="#dc2626" /> AutoGen</span>
+                  <span className="tech-item"><CheckCircle size={12} color="#dc2626" /> LlamaIndex</span>
                 </div>
               </div>
 
               {/* Backend Card */}
               <div className="glass-card tech-category-card">
                 <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <Database size={18} />
-                  Backend & Database
+                  <Brain size={18} />
+                  Backend & Vector DBs
                 </h3>
                 <div className="tech-list">
+                  <span className="tech-item"><CheckCircle size={12} color="#dc2626" /> Python</span>
                   <span className="tech-item"><CheckCircle size={12} color="#dc2626" /> Node.js</span>
-                  <span className="tech-item"><CheckCircle size={12} color="#dc2626" /> Express</span>
-                  <span className="tech-item"><CheckCircle size={12} color="#dc2626" /> MongoDB / Mongoose</span>
+                  <span className="tech-item"><CheckCircle size={12} color="#dc2626" /> Pinecone</span>
+                  <span className="tech-item"><CheckCircle size={12} color="#dc2626" /> Supabase</span>
+                  <span className="tech-item"><CheckCircle size={12} color="#dc2626" /> PostgreSQL (pgvector)</span>
                   <span className="tech-item"><CheckCircle size={12} color="#dc2626" /> REST APIs</span>
-                  <span className="tech-item"><CheckCircle size={12} color="#dc2626" /> AJAX / JSON</span>
-                  <span className="tech-item"><CheckCircle size={12} color="#dc2626" /> ASP.NET</span>
                 </div>
               </div>
 
-              {/* DevOps Card */}
+              {/* Frontend Card */}
               <div className="glass-card tech-category-card">
                 <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <Terminal size={18} />
-                  System & DevOps
+                  <Code2 size={18} />
+                  Modern Tech
                 </h3>
                 <div className="tech-list">
-                  <span className="tech-item"><CheckCircle size={12} color="#dc2626" /> Git / GitHub</span>
-                  <span className="tech-item"><CheckCircle size={12} color="#dc2626" /> Bun Package Manager</span>
-                  <span className="tech-item"><CheckCircle size={12} color="#dc2626" /> Webpack / Vite</span>
+                  <span className="tech-item"><CheckCircle size={12} color="#dc2626" /> React</span>
+                  <span className="tech-item"><CheckCircle size={12} color="#dc2626" /> Next.js</span>
+                  <span className="tech-item"><CheckCircle size={12} color="#dc2626" /> TypeScript</span>
+                  <span className="tech-item"><CheckCircle size={12} color="#dc2626" /> Tailwind CSS</span>
                   <span className="tech-item"><CheckCircle size={12} color="#dc2626" /> Vercel Deployment</span>
-                  <span className="tech-item"><CheckCircle size={12} color="#dc2626" /> Cordora / Ionic CLI</span>
                 </div>
               </div>
             </div>
