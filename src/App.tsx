@@ -3,6 +3,8 @@ import { Mail, Briefcase, GraduationCap, Code2, Database, Terminal, ArrowRight, 
 import { ProjectCard } from './components/ProjectCard';
 import { ProjectViewer } from './components/ProjectViewer';
 import { StatsDashboard } from './components/StatsDashboard';
+import { ParticleBackground } from './components/ParticleBackground';
+import { TerminalWidget } from './components/TerminalWidget';
 
 interface Project {
   id: string;
@@ -52,6 +54,7 @@ export default function App() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [showTerminal, setShowTerminal] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -123,6 +126,7 @@ export default function App() {
 
   return (
     <>
+      <ParticleBackground />
       {/* Navigation */}
       <nav className={`navbar glass ${scrolled ? 'scrolled' : ''}`}>
         <div className="container">
@@ -158,9 +162,37 @@ export default function App() {
               </div>
             </div>
             
-            <div className="avatar-container">
-              <div className="avatar-frame">
-                <img src="/assets/avatar.jpg" alt="Michael Byrd Avatar" />
+            <div className="hero-interactive-card">
+              <div className="card-switcher">
+                <button 
+                  className={!showTerminal ? 'active' : ''} 
+                  onClick={() => setShowTerminal(false)}
+                >
+                  Profile
+                </button>
+                <button 
+                  className={showTerminal ? 'active' : ''} 
+                  onClick={() => setShowTerminal(true)}
+                >
+                  Terminal
+                </button>
+              </div>
+
+              <div className="interactive-card-content">
+                {!showTerminal ? (
+                  <div className="avatar-container animate-fade-in">
+                    <div className="avatar-frame">
+                      <img src="/assets/avatar.jpg" alt="Michael Byrd Avatar" />
+                    </div>
+                  </div>
+                ) : (
+                  <TerminalWidget onLaunchProject={(id) => {
+                    const matched = projects.find(p => p.id === id);
+                    if (matched) {
+                      setSelectedProject(matched);
+                    }
+                  }} />
+                )}
               </div>
             </div>
           </div>
