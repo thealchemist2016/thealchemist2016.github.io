@@ -9,20 +9,136 @@ interface CommandLog {
   type: 'input' | 'output' | 'error' | 'success';
 }
 
+interface FSNode {
+  type: 'file' | 'dir';
+  content?: string;
+  children?: { [key: string]: FSNode };
+}
+
+// Predefined Virtual File System
+const virtualFS: { [key: string]: FSNode } = {
+  'bio.md': {
+    type: 'file',
+    content: `=====================================================
+            MICHAEL JAMES BYRD JR.
+=====================================================
+Role: Full-Stack Software Engineer
+Focus: React, React Native, Node.js REST APIs
+
+Summary:
+Highly dedicated full-stack engineer who builds user-first
+applications. Bridging the gap between robust system architecture
+and fluid, modern client-side experiences.
+
+Education:
+Southern Careers Institute - Full Stack Web Development
+
+Available for work: YES
+`
+  },
+  'projects': {
+    type: 'dir',
+    children: {
+      'smarttodo.md': {
+        type: 'file',
+        content: `-----------------------------------------------------
+PROJECT: SmartTodo
+-----------------------------------------------------
+Description: An AI-powered productivity app that automatically
+prioritizes and schedules tasks. Compiled for cross-platform web use.
+Stack: React Native, Expo Web, TypeScript, Async Storage
+
+Tip: Run 'project smarttodo' to launch this application live!`
+      },
+      'xs-records.md': {
+        type: 'file',
+        content: `-----------------------------------------------------
+PROJECT: XS-Records
+-----------------------------------------------------
+Description: A music release submission and distribution platform 
+built for Indie Artists and Records Labels.
+Stack: React, Redux, Node.js, Express, MongoDB
+
+Tip: Run 'project xs-records' to launch this application live!`
+      },
+      'auth-portal.md': {
+        type: 'file',
+        content: `-----------------------------------------------------
+PROJECT: Animated Authentication Portal
+-----------------------------------------------------
+Description: A premium client-side credentials entrance. Features
+sleek animations, inline SVGs, and validation feedback.
+Stack: React, React Spring, Custom CSS HSL Gradients
+
+Tip: Run 'project auth' to launch this application live!`
+      }
+    }
+  },
+  'skills': {
+    type: 'dir',
+    children: {
+      'languages.json': {
+        type: 'file',
+        content: `{\n  "TypeScript": "Expert",\n  "JavaScript": "Expert",\n  "Python": "Intermediate",\n  "PowerShell": "Intermediate",\n  "SQL/NoSQL": "Intermediate"\n}`
+      },
+      'frameworks.json': {
+        type: 'file',
+        content: `{\n  "React": "Expert (Single-page apps, Hooks, State)",\n  "React Native": "Expert (Expo CLI, Web compilations)",\n  "Express.js": "Expert (REST APIs, routing, middleware)",\n  "MongoDB/Mongoose": "Advanced (Aggregations, schemas)"\n}`
+      }
+    }
+  },
+  'contact': {
+    type: 'dir',
+    children: {
+      'email.txt': {
+        type: 'file',
+        content: `Email: mbyrd405@outlook.com`
+      },
+      'socials.json': {
+        type: 'file',
+        content: `{\n  "LinkedIn": "https://www.linkedin.com/in/mbyrd405",\n  "GitHub": "https://github.com/thealchemist2016"\n}`
+      }
+    }
+  },
+  'secrets.txt': {
+    type: 'file',
+    content: `ACCESS GRANTED.
+
+Easter Egg: You have discovered a hidden file!
+Fun Fact: This entire shell environment runs dynamically in React state.
+Thank you for inspecting my portfolio! Feel free to reach out to me
+at mbyrd405@outlook.com to discuss collaboration opportunities.
+`
+  }
+};
+
 export const TerminalWidget: React.FC<TerminalWidgetProps> = ({ onLaunchProject }) => {
   const [input, setInput] = useState('');
+  const [path, setPath] = useState<string[]>([]); // Current directory path array
   const [history, setHistory] = useState<CommandLog[]>([
-    { text: 'Michael Byrd Shell [Version 1.0.4]', type: 'success' },
-    { text: "Type 'help' to view all available commands.", type: 'output' },
+    { text: 'Michael Byrd Shell [Version 1.1.2]', type: 'success' },
+    { text: "Virtual filesystem mounted. Type 'help' to see commands.", type: 'output' },
+    { text: "Try navigating using 'ls', 'cd <dir>', and 'cat <file>'.", type: 'output' },
     { text: '', type: 'output' },
   ]);
   
   const terminalEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Scroll to bottom on command execution
     terminalEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [history]);
+
+  // Navigate the virtual FS tree to find a node by its path array
+  const getNodeByPath = (targetPath: string[]): FSNode | null => {
+    let curr: FSNode = { type: 'dir', children: virtualFS };
+    for (const p of targetPath) {
+      if (curr.type !== 'dir' || !curr.children || !curr.children[p]) {
+        return null;
+      }
+      curr = curr.children[p];
+    }
+    return curr;
+  };
 
   const handleCommand = (cmd: string) => {
     const trimmedCmd = cmd.trim();
@@ -32,9 +148,10 @@ export const TerminalWidget: React.FC<TerminalWidgetProps> = ({ onLaunchProject 
     const mainCommand = parts[0].toLowerCase();
     const args = parts.slice(1);
 
+    const currentPathStr = `~${path.length > 0 ? '/' + path.join('/') : ''}`;
     const newLogs: CommandLog[] = [
       ...history,
-      { text: `mike@byrd-dev:~$ ${trimmedCmd}`, type: 'input' }
+      { text: `mike@byrd-dev:${currentPathStr}$ ${trimmedCmd}`, type: 'input' }
     ];
 
     switch (mainCommand) {
@@ -45,71 +162,94 @@ export const TerminalWidget: React.FC<TerminalWidgetProps> = ({ onLaunchProject 
 
       case 'help':
         newLogs.push(
-          { text: 'Available commands:', type: 'success' },
-          { text: '  about        - Meet Michael James Byrd Jr.', type: 'output' },
-          { text: '  skills       - Show core tech stack metrics.', type: 'output' },
-          { text: '  projects     - List projects or launch them.', type: 'output' },
-          { text: '  contact      - Display contact links.', type: 'output' },
-          { text: '  project <id> - Run a project directly (e.g. project smarttodo)', type: 'output' },
-          { text: '  clear        - Flush terminal log.', type: 'output' }
+          { text: 'Shell commands:', type: 'success' },
+          { text: '  ls           - List files and folders in current directory.', type: 'output' },
+          { text: '  cd <dir>     - Change working directory (e.g. cd projects, cd ..).', type: 'output' },
+          { text: '  cat <file>   - Output contents of a file (e.g. cat bio.md).', type: 'output' },
+          { text: '  pwd          - Print absolute working directory path.', type: 'output' },
+          { text: '  project <id> - Launch app in mock device frame (smarttodo | xs-records | auth).', type: 'output' },
+          { text: '  clear        - Flush terminal screen logs.', type: 'output' }
         );
         break;
 
-      case 'about':
-        newLogs.push(
-          { text: 'Michael James Byrd Jr. - Full-Stack Software Engineer.', type: 'success' },
-          { text: 'Bio: Driven developer specializing in React, React Native, and Node.js backend APIs. I bridge the gap between elegant UI presentation and high-efficiency database endpoints.', type: 'output' },
-          { text: 'Education: Southern Careers Institute (Full Stack Web Development).', type: 'output' },
-          { text: 'Status: Available for hire.', type: 'output' }
-        );
+      case 'pwd':
+        newLogs.push({ text: `/${path.join('/')}`, type: 'output' });
         break;
 
-      case 'skills':
-        newLogs.push(
-          { text: 'Core Skillset Breakdown:', type: 'success' },
-          { text: '  Frontend  [██████████████████░░] 90% - React, TS, HTML5/CSS3', type: 'output' },
-          { text: '  Mobile    [█████████████████░░░] 85% - React Native, Expo, AngularJS', type: 'output' },
-          { text: '  Backend   [████████████████░░░░] 80% - Node, Express, MongoDB, ASP.NET', type: 'output' },
-          { text: '  DevOps    [██████████████░░░░░░] 70% - Git, Vite, Webpack, Vercel', type: 'output' }
-        );
-        break;
-
-      case 'projects':
-        if (args.length === 0) {
-          newLogs.push(
-            { text: 'Showcase Projects:', type: 'success' },
-            { text: '  1. smarttodo  - AI-Powered Task Scheduler Mobile App', type: 'output' },
-            { text: '  2. xs-records - Music Release & Distribution Platform', type: 'output' },
-            { text: '  3. auth       - Animated Authentication Portal', type: 'output' },
-            { text: 'Tip: Type "project <id>" to run the live application inside the portfolio frame!', type: 'output' }
-          );
+      case 'ls': {
+        const currentDir = getNodeByPath(path);
+        if (currentDir && currentDir.type === 'dir' && currentDir.children) {
+          const items = Object.keys(currentDir.children).map(name => {
+            const isDir = currentDir.children![name].type === 'dir';
+            return isDir ? `${name}/` : name;
+          });
+          if (items.length > 0) {
+            newLogs.push({ text: items.join('      '), type: 'output' });
+          } else {
+            newLogs.push({ text: '(empty directory)', type: 'output' });
+          }
         } else {
-          // Allow opening project via 'projects <id>'
+          newLogs.push({ text: 'Error: Cannot read current directory.', type: 'error' });
+        }
+        break;
+      }
+
+      case 'cd': {
+        const targetDir = args[0];
+        if (targetDir === '..') {
+          if (path.length > 0) {
+            setPath(prev => prev.slice(0, -1));
+          }
+        } else if (targetDir === '/' || !targetDir) {
+          setPath([]);
+        } else {
+          // Resolve relative target directories
+          const currentDir = getNodeByPath(path);
+          if (currentDir && currentDir.type === 'dir' && currentDir.children && currentDir.children[targetDir]) {
+            const targetNode = currentDir.children[targetDir];
+            if (targetNode.type === 'dir') {
+              setPath(prev => [...prev, targetDir]);
+            } else {
+              newLogs.push({ text: `cd: not a directory: ${targetDir}`, type: 'error' });
+            }
+          } else {
+            newLogs.push({ text: `cd: no such file or directory: ${targetDir}`, type: 'error' });
+          }
+        }
+        break;
+      }
+
+      case 'cat': {
+        const fileName = args[0];
+        if (!fileName) {
+          newLogs.push({ text: 'Usage: cat <filename>', type: 'error' });
+        } else {
+          const fileNode = getNodeByPath([...path, fileName]);
+          if (fileNode) {
+            if (fileNode.type === 'file') {
+              newLogs.push({ text: fileNode.content || '', type: 'output' });
+            } else {
+              newLogs.push({ text: `cat: ${fileName}: Is a directory`, type: 'error' });
+            }
+          } else {
+            newLogs.push({ text: `cat: ${fileName}: No such file or directory`, type: 'error' });
+          }
+        }
+        break;
+      }
+
+      case 'project': {
+        if (args.length === 0) {
+          newLogs.push({ text: 'Usage: project <smarttodo | xs-records | auth>', type: 'error' });
+        } else {
           const projId = args[0].toLowerCase();
           handleLaunchProject(projId, newLogs);
         }
         break;
-
-      case 'project':
-        if (args.length === 0) {
-          newLogs.push({ text: 'Error: Please specify a project ID (e.g. project smarttodo)', type: 'error' });
-        } else {
-          const projId = args[0].toLowerCase();
-          handleLaunchProject(projId, newLogs);
-        }
-        break;
-
-      case 'contact':
-        newLogs.push(
-          { text: 'Get in Touch:', type: 'success' },
-          { text: '  Email:    mbyrd405@outlook.com', type: 'output' },
-          { text: '  LinkedIn: https://www.linkedin.com/in/mbyrd405', type: 'output' },
-          { text: '  GitHub:   https://github.com/thealchemist2016', type: 'output' }
-        );
-        break;
+      }
 
       default:
-        newLogs.push({ text: `Command not found: '${mainCommand}'. Type 'help' for assistance.`, type: 'error' });
+        newLogs.push({ text: `Command not found: '${mainCommand}'. Type 'help' to see details.`, type: 'error' });
         break;
     }
 
@@ -129,12 +269,13 @@ export const TerminalWidget: React.FC<TerminalWidgetProps> = ({ onLaunchProject 
 
     if (targetId) {
       logs.push({ text: `Launching ${targetId} preview frame...`, type: 'success' });
-      // Call portfolio callback to launch modal viewer
       onLaunchProject(targetId);
     } else {
       logs.push({ text: `Unknown project: '${projId}'. Try 'smarttodo', 'xs-records', or 'auth'.`, type: 'error' });
     }
   };
+
+  const currentPathStr = `~${path.length > 0 ? '/' + path.join('/') : ''}`;
 
   return (
     <div className="terminal-widget glass">
@@ -144,7 +285,7 @@ export const TerminalWidget: React.FC<TerminalWidgetProps> = ({ onLaunchProject 
           <span className="dot dot-minimize"></span>
           <span className="dot dot-maximize"></span>
         </div>
-        <div className="terminal-title">bash - mike@byrd-dev:~</div>
+        <div className="terminal-title">bash - mike@byrd-dev:{currentPathStr}</div>
       </div>
       <div className="terminal-body">
         {history.map((log, index) => (
@@ -161,7 +302,7 @@ export const TerminalWidget: React.FC<TerminalWidgetProps> = ({ onLaunchProject 
             handleCommand(input);
           }}
         >
-          <span className="prompt-label">mike@byrd-dev:~$</span>
+          <span className="prompt-label">mike@byrd-dev:{currentPathStr}$</span>
           <input
             type="text"
             className="terminal-input"
