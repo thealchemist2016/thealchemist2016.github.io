@@ -39,6 +39,18 @@ Available for work: YES
   'projects': {
     type: 'dir',
     children: {
+      'agentmesh.md': {
+        type: 'file',
+        content: `-----------------------------------------------------
+PROJECT: AgentMesh Orchestrator
+-----------------------------------------------------
+Description: An interactive multi-agent system builder and 
+simulation dashboard. Allows you to design and orchestrate autonomous
+AI agents in custom topologies.
+Stack: React, TypeScript, SVG Flows, Live Telemetry
+
+Tip: Run 'project agentmesh' to launch this application live!`
+      },
       'smarttodo.md': {
         type: 'file',
         content: `-----------------------------------------------------
@@ -169,7 +181,7 @@ export const TerminalWidget: React.FC<TerminalWidgetProps> = ({ onLaunchProject 
           { text: '  cd <dir>     - Change working directory (e.g. cd projects, cd ..).', type: 'output' },
           { text: '  cat <file>   - Output contents of a file (e.g. cat bio.md).', type: 'output' },
           { text: '  pwd          - Print absolute working directory path.', type: 'output' },
-          { text: '  project <id> - Launch app in mock device frame (smarttodo | xs-records | auth).', type: 'output' },
+          { text: '  project <id> - Launch app in mock device frame (agentmesh | smarttodo | xs-records | auth).', type: 'output' },
           { text: '  clear        - Flush terminal screen logs.', type: 'output' }
         );
         break;
@@ -261,7 +273,9 @@ export const TerminalWidget: React.FC<TerminalWidgetProps> = ({ onLaunchProject 
 
   const handleLaunchProject = (projId: string, logs: CommandLog[]) => {
     let targetId = '';
-    if (projId === 'smarttodo' || projId === 'todo' || projId === '1') {
+    if (projId === 'agentmesh' || projId === 'mesh' || projId === 'orchestrator' || projId === '0') {
+      targetId = 'agentmesh';
+    } else if (projId === 'smarttodo' || projId === 'todo' || projId === '1') {
       targetId = 'smarttodo';
     } else if (projId === 'xs-records' || projId === 'xsrecords' || projId === '2') {
       targetId = 'xs-records';

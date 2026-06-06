@@ -82,13 +82,24 @@ export default function App() {
 
   const projects: Project[] = [
     {
+      id: 'agentmesh',
+      title: 'AgentMesh Orchestrator',
+      description: 'An interactive multi-agent system builder and simulation dashboard. Design agent prompts, select topologies (Pipelines, Supervisor-Worker, Debates), and trigger real-time simulated telemetry.',
+      tags: ['React', 'TypeScript', 'AI Orchestration', 'Multi-Agent Systems', 'Telemetry'],
+      githubUrl: 'https://github.com/thealchemist2016/agentmesh-orchestrator',
+      liveUrl: 'local://agentmesh',
+      thumbnail: '/assets/screenshots/agentmesh_preview.png',
+      isApp: true,
+      isMobile: false
+    },
+    {
       id: 'smarttodo',
       title: 'SmartTodo',
       description: 'An AI-powered smart productivity mobile application that automatically prioritizes and schedules tasks. Built as a cross-platform React Native app compiled for the web.',
       tags: ['React Native', 'Expo', 'TypeScript', 'Async Storage', 'Bun'],
       githubUrl: 'https://github.com/thealchemist2016/SmartTodo',
       liveUrl: '/SmartTodo/index.html', // Served out of public/
-      thumbnail: '/assets/screenshots/Screenshot (21).png', // Use one of the screenshots as thumbnail
+      thumbnail: '/assets/screenshots/smarttodo_preview.png',
       isApp: true,
       isMobile: true
     },
@@ -99,16 +110,11 @@ export default function App() {
       tags: ['React', 'Redux', 'MongoDB', 'Node.js', 'Express', 'MERN'],
       githubUrl: 'https://github.com/thealchemist2016/team-code-ctrl', 
       liveUrl: '/XS-Records/index.html',
-      thumbnail: '/assets/screenshots/Screenshot (20).png',
+      thumbnail: '/assets/screenshots/xs_records_preview.png',
       isApp: true, 
       isMobile: false,
       screenshots: [
-        '/assets/screenshots/Screenshot (20).png',
-        '/assets/screenshots/Screenshot (21).png',
-        '/assets/screenshots/Screenshot (22).png',
-        '/assets/screenshots/Screenshot (23).png',
-        '/assets/screenshots/Screenshot (24).png',
-        '/assets/screenshots/Screenshot (25).png'
+        '/assets/screenshots/xs_records_preview.png'
       ]
     },
     {
@@ -118,7 +124,7 @@ export default function App() {
       tags: ['React', 'JavaScript', 'CSS Animations', 'Form Validation'],
       githubUrl: 'https://github.com/thealchemist2016/login-register-app',
       liveUrl: '/login-register/index.html',
-      thumbnail: '/assets/screenshots/Screenshot (24).png',
+      thumbnail: '/assets/screenshots/auth_portal_preview.png',
       isApp: true,
       isMobile: false
     }
